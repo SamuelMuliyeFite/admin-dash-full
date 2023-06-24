@@ -4,6 +4,8 @@ import axios from "axios";
 import Message from "./message.js";
 import {Box, Button, Card, CardContent, Grid, TextField} from "@mui/material";
 
+
+
 const Tables = () => {
   const messagesListRef = React.createRef();
   const [messageInput, setMessageInput] = useState("");
@@ -33,6 +35,7 @@ const Tables = () => {
     });
   }
 
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -47,12 +50,12 @@ const Tables = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <Card sx={{maxWidth: 420}}>
+      <Card sx={{maxWidth: 620}}>
         <CardContent>
           <Box
             ref={messagesListRef}
             sx={{
-              height: 420,
+              height: 620,
               overflow: "scroll",
               overflowX: "hidden",
             }}

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../Context/StateProvider';
-import UserOne from '../images/user/user-01.png';
+import UserOne from '../../src/pages/admin.png';
 import { useNavigate } from 'react-router-dom';
 
 const DropdownUser = () => {
@@ -63,7 +63,7 @@ const DropdownUser = () => {
          
         </span>
 
-        <span className="h-12 w-12 rounded-full">
+        <span className="h-15 w-12 rounded-full ">
           <img src={UserOne} alt="User" />
         </span>
 

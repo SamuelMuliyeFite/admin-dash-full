@@ -3,6 +3,7 @@ import axiosinstance from "../../Axios/Axios2";
 import { useState } from "react";
 import { useStateValue } from "../../Context/StateProvider";
 
+
 const TableOne = () => {
   const [{token,TotalSell,amount,customer,signuprequest},dispatch]=useStateValue()
   useState(()=>{
@@ -20,6 +21,8 @@ const TableOne = () => {
     })
 
   },[])
+  
+ 
 
   const decline=((companyName)=>{
     axiosinstance.post(('/admin/Declinesignup'),{companyName:companyName})
@@ -46,6 +49,7 @@ const TableOne = () => {
       console.log(err)
     })
   })
+  
 
   const accept=((companyEmail,password,companyName)=>{
     axiosinstance.post(('/admin/acceptsignup'),{companyEmail:companyEmail,password:password,companyName:companyName})
@@ -115,6 +119,7 @@ const TableOne = () => {
 
           <div className="flex items-center justify-center p-2.5 xl:p-5">
             <p className="text-meta-3">{item.verified ? 'verified':'false'}</p>
+            <img src={`http://localhost:3000/${item.companyName}.png`} height="100px" width="50px" ></img>
           </div>
           <button onClick={()=>{accept(item.companyEmail,item.password,item.companyName)}} className="inline-flex items-center justify-center rounded-md border border-meta-3 py-4 px-10 text-center font-medium text-meta-3 hover:bg-opacity-90 lg:px-8 xl:px-10  cursor-pointer">
            

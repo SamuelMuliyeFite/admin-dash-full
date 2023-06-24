@@ -83,7 +83,7 @@ const TableOne = () => {
   }, []);
   console.log(company, userEmail, 'sssssssss');
   return (
-    <div className=" w-[700px] rounded-sm border border-stroke bg-white px-2 pt-3 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+    <div className=" rounded-sm border border-stroke bg-white px-2 pt-3 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
       <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
         List of Companies
       </h4>

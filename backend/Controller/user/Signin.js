@@ -11,7 +11,7 @@ exports.Signin = (req, res) => {
       if (data) {
         console.log(data, data.verified);
 
-        if (data.verified) {
+       {/*} if (data.verified) {*/}
           if (data.authenticate(req.body.password)) {
             const _token = signtoken(data._id);
             res.status(200).json({
@@ -23,7 +23,7 @@ exports.Signin = (req, res) => {
               error: 'wrong password',
             });
           }
-        } else {
+        {/*}} {/*else {
           user.findOneAndDelete({ email: req.body.email })
             .then((data) => {
               if (data) {
@@ -41,7 +41,7 @@ exports.Signin = (req, res) => {
                 error: err,
               });
             });
-        }
+        }*/}
       } else {
         res.status(400).json({
           error: 'user not found',
