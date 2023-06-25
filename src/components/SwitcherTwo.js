@@ -33,7 +33,7 @@ const TableTwo = () => {
       </h4>
 
       <div className="flex flex-col">
-        <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5">
+        <div className="flex items-center justify-between">
           <div className="p-2.5 xl:p-5">
             <h5 className="text-sm font-medium uppercase xsm:text-base">
               Name
@@ -44,21 +44,27 @@ const TableTwo = () => {
               Message
             </h5>
           </div>
+          <div className="p-2.5 text-center xl:p-5">
+            <h5 className="text-sm font-medium uppercase xsm:text-base">
+              Status
+            </h5>
+          </div>
+          
           
           
         </div>
         {message && message.map((item)=>(
-           <div className="flex flex-nowrap" key={item.from}>
+           <div className="flex items-center justify-between" key={item._id}>
            <div className="flex items-center gap-3 p-2.5 xl:p-5">
              <div className="flex-shrink-0">
              </div>
-             <p className="hidden text-black dark:text-white sm:block">{item.from}</p>
+             <p className="text-sm font-medium uppercase xsm:text-bas">{item.from}</p>
            </div>
  
-           <div className="flex items-center flex-wrap justify-center px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 xl:py-5">
-  <p className="text-black dark:text-white text-center sm:text-left">{item.message}</p>
-</div>
-    <PopMessage></PopMessage>
+          <div className="flex items-center flex-nowrap justify-center px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 xl:py-5 w-110">
+            <p className="text-black dark:text-white text-center sm:text-left ">{item.message}</p>
+          </div>
+    <PopMessage from={item.from} to={item.to}></PopMessage>
  
        
  

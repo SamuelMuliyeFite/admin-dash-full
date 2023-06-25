@@ -1,7 +1,19 @@
 import React from "react";
-
-export default function PopMessage() {
+import axiosinstance3 from "../../Axios/Axios3";
+export default function PopMessage({from,to}) {
   const [showModal, setShowModal] = React.useState(false);
+  const [message, setMessage] = React.useState('');
+  const replyMessage=(e)=>{
+    e.preventDefault();
+    axiosinstance3.post('/replyMessage',{to:from,from:to,message:message})
+    .then((res)=>{
+        console.log(res,'sennnnt')
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+    setShowModal(false)
+  }
   return (
     <>
       <button
@@ -9,7 +21,7 @@ export default function PopMessage() {
         type="button"
         onClick={() => setShowModal(true)}
       >
-        reply
+        Reply
       </button>
       {showModal ? (
         <>
@@ -18,11 +30,11 @@ export default function PopMessage() {
           >
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               {/*content*/}
-              <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              <div className="border-0 rounded-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">
-                    Modal Title
+                  <h3 className="text-3xl font-bold">
+                    Response
                   </h3>
                   <button
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -35,12 +47,10 @@ export default function PopMessage() {
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  <p className="my-4 text-slate-500 text-lg leading-relaxed">
-                    I always felt like I could do anything. That’s the main
-                    thing people are controlled by! Thoughts- their perception
-                    of themselves! They're slowed down by their perception of
-                    themselves. If you're taught you can’t do anything, you
-                    won’t do anything. I was taught I could do everything.
+                  <p className="mb-6 text-xl font-semibold text-black dark:text-black">
+                    <div className="input-group">
+                    <input onChange={(e)=>{setMessage(e.target.value)}} type="text" id="Message" />
+                    </div>
                   </p>
                 </div>
                 {/*footer*/}
@@ -55,9 +65,9 @@ export default function PopMessage() {
                   <button
                     className="bg-success text-white active:bg-emerald-600 font-bold uppercase text-sm px-5 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
+                    onClick={(e) =>replyMessage(e) }
                   >
-                    reply
+                    Reply
                   </button>
                 </div>
               </div>
