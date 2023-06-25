@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const userRoute = require('./Routes/userRoutes');
 const cors = require('cors');
-//const { expressCspHeader, INLINE, NONE, SELF } = require('express-csp-header'); 
+//const { expressCspHeader, INLINE, NONE, SELF } = require('express-csp-header');
 require('dotenv').config();
 mongoose.set('strictQuery', true);
 mongoose
@@ -20,9 +20,11 @@ mongoose
       console.log(err);
     }
   });
-app.use(cors({
-  origin:"http://localhost:3000"
-}));   
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 /*app.use(
   expressCspHeader({
     directives: {

@@ -1,33 +1,74 @@
-import { useState } from 'react';
+import { useEffect } from "react";
+import axiosinstance from "../Axios/Axios3";
+import { useState } from "react";
+import { useStateValue } from "../Context/StateProvider";
+import PopMessage from "./Modals/PopMessage.js";
 
-const SwitcherTwo = () => {
-  const [enabled, setEnabled] = useState(false);
-
+const TableTwo = () => {
+  const [{useremail,message},dispatch]=useStateValue()
+  const emaill=localStorage.getItem('useremail')
+  useEffect(()=>{
+     
+    axiosinstance.post('/viewmessage', { to:emaill })
+    .then((res) => {
+      if (res.status == '200') {
+      
+        dispatch({
+          type: 'message',
+          message: res.data.message,
+        });
+      
+      } else {
+        console.log(res.data.error);
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  },)
   return (
-    <div x-data="{ switcherToggle: false }">
-      <label
-        htmlFor="toggle2"
-        className="flex cursor-pointer select-none items-center"
-      >
-        <div className="relative">
-          <input
-            id="toggle2"
-            type="checkbox"
-            className="sr-only"
-            onChange={() => {
-              setEnabled(!enabled);
-            }}
-          />
-          <div className="h-5 w-14 rounded-full bg-meta-9 shadow-inner dark:bg-[#5A616B]"></div>
-          <div
-            className={`dot absolute left-0 -top-1 h-7 w-7 rounded-full bg-white shadow-switch-1 transition ${
-              enabled && '!right-0 !translate-x-full !bg-primary dark:!bg-white'
-            }`}
-          ></div>
+    <div className="rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
+      <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
+        Customer Support Responses
+      </h4>
+
+      <div className="flex flex-col">
+        <div className="grid grid-cols-3 rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5">
+          <div className="p-2.5 xl:p-5">
+            <h5 className="text-sm font-medium uppercase xsm:text-base">
+              Name
+            </h5>
+          </div>
+          <div className="p-2.5 text-center xl:p-5">
+            <h5 className="text-sm font-medium uppercase xsm:text-base">
+              Message
+            </h5>
+          </div>
+          
+          
         </div>
-      </label>
+        {message && message.map((item)=>(
+           <div className="flex flex-nowrap" key={item.from}>
+           <div className="flex items-center gap-3 p-2.5 xl:p-5">
+             <div className="flex-shrink-0">
+             </div>
+             <p className="hidden text-black dark:text-white sm:block">{item.from}</p>
+           </div>
+ 
+           <div className="flex items-center flex-wrap justify-center px-2 sm:px-4 md:px-6 lg:px-8 xl:px-10 py-2.5 sm:py-3 md:py-3.5 lg:py-4 xl:py-5">
+  <p className="text-black dark:text-white text-center sm:text-left">{item.message}</p>
+</div>
+    <PopMessage></PopMessage>
+ 
+       
+ 
+         </div>
+        ))}     
+
+       
+      </div>
     </div>
   );
 };
 
-export default SwitcherTwo;
+export default TableTwo;

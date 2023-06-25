@@ -33,11 +33,36 @@ const reducer=(state,action)=>{
                             ...state,
                             newCompanies :action.newCompanies
                         }
+                        case 'allusers':
+                            return{
+                                ...state,
+                                allusers :action.allusers
+                            }
+                            case 'useremail':
+                                return{
+                                    ...state,
+                                    useremail :action.useremail
+                                }
+                            case 'companylength':
+                        return{
+                            ...state,
+                            companylength :action.companylength
+                        }
+                        case 'userlength':
+                        return{
+                            ...state,
+                            userlength :action.userlength
+                        }
                         case 'transaction':
                             return{
                                 ...state,
                                 transaction :action.transaction
                             }
+                            case 'message':
+                                return{
+                                    ...state,
+                                    message :action.message
+                                }
                         case 'company':
       return {
         ...state,

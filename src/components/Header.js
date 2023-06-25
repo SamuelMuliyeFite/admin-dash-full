@@ -53,9 +53,7 @@ const Header = (props) => {
           </button>
           {/* <!-- Hamburger Toggle BTN --> */}
 
-          <Link className="block flex-shrink-0 lg:hidden" to="/">
-            <img src={Logo} alt="Logo" />
-          </Link>
+          
         </div>
 
         <div className="hidden sm:block">
@@ -63,12 +61,7 @@ const Header = (props) => {
             <div className="relative">
               <button className="absolute top-1/2 left-0 -translate-y-1/2">
                 <svg
-                  className="fill-body hover:fill-primary dark:fill-bodydark dark:hover:fill-primary"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                 
                 >
                   <path
                     fillRule="evenodd"

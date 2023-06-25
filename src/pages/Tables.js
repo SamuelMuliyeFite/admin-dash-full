@@ -3,11 +3,13 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Message from "./message.js";
 import {Box, Button, Card, CardContent, Grid, TextField} from "@mui/material";
+import SwitcherTwo from '..//components/SwitcherTwo';
+import ChartTwo from '..//components/ChartTwo';
 
 
 
 const Tables = () => {
-  const messagesListRef = React.createRef();
+ {/*} const messagesListRef = React.createRef();
   const [messageInput, setMessageInput] = useState("");
   const [messages, setMessages] = useState([]);
 
@@ -41,10 +43,10 @@ const Tables = () => {
 
     sendMessage(messageInput);
     setMessageInput("");
-  }
+  } */}
   return (
     <DefaultLayout>
-      <Grid
+     {/*} <Grid
       container
       direction="row"
       justifyContent="center"
@@ -72,7 +74,7 @@ const Tables = () => {
   />
 ))}
               {/* TODO: messages will be displayed here */}
-            </Box>
+     {/*}       </Box>
           </Box>
           <Box
             component="form"
@@ -100,7 +102,8 @@ const Tables = () => {
           </Box>
         </CardContent>
       </Card>
-    </Grid>
+          </Grid> */}
+    <SwitcherTwo />
 
 
     </DefaultLayout>

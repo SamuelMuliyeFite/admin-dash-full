@@ -17,6 +17,7 @@ exports.Signin = (req, res) => {
             res.status(200).json({
               message: 'sucessfully sined',
               user: _token,
+              useremail:data.email
             });
           } else {
             res.status(400).json({

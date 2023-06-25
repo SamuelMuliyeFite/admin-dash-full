@@ -22,10 +22,16 @@ const SignIn = () => {
     axiosinstance.post('/user/signin', { email: email, password: password })
       .then((res) => {
         if (res.status == '200') {
+       
           localStorage.setItem('user', res.data.Accesstoken);
+          localStorage.setItem('useremail', res.data.useremail);
           dispatch({
             type: 'signin',
             token: res.data.Accesstoken,
+          });
+          dispatch({
+            type: 'useremail',
+            useremail: res.data.useremail,
           });
           console.log(res);
           navigate('/dashboard');

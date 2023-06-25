@@ -70,10 +70,14 @@ const TableOne = () => {
       .get('/getCompany')
       .then((res) => {
         if (res) {
-          console.log(res,"ressssssssss")
+          console.log(res,res.data.message.length,"ressssssssss")
           dispatch({
             type: 'company',
             company: res.data.message,
+          });
+          dispatch({
+            type: 'companylength',
+            companylength: res.data.message.length,
           });
         }
       })

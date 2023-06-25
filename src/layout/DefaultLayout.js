@@ -21,9 +21,9 @@ const DefaultLayout = ({ children }) => {
         <div className="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
           {/* <!-- ===== Header Start ===== --> */}
           {token && (
-          <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-        )}
-          
+            <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+          )}
+
           {/* <!-- ===== Header End ===== --> */}
 
           {/* <!-- ===== Main Content Start ===== --> */}

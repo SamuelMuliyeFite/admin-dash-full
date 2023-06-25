@@ -9,7 +9,12 @@ export const initialstate={
     TotalSell:0,
     customer:0,
     signuprequest:null,
-    transaction:[0,0,0,0,0,0,0,0,0,0,0,0]
+    transaction:[0,0,0,0,0,0,0,0,0,0,0,0],
+    allusers:null,
+    companylength:0,
+    userlength:0,
+    message:null,
+    useremail:null
     
     
 }
