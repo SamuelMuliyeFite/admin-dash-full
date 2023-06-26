@@ -31,7 +31,7 @@ const reducer=(state,action)=>{
                     case 'newcompany':
                         return{
                             ...state,
-                            newCompanies :action.newCompanies
+                            newcompany :action.newcompany
                         }
                         case 'allusers':
                             return{

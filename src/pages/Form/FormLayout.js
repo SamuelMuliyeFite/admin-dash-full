@@ -12,8 +12,8 @@ const FormLayout = () => {
 
       <div className="flex flex-col gap-10">
         <TableOne />
-        <TableTwo />
         <TableThree />
+        <TableTwo />
       </div>
     </DefaultLayout>
   );

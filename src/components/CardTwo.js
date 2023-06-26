@@ -34,7 +34,7 @@ const CardTwo = () => {
           <h4 className="text-title-md font-bold text-black dark:text-white">
             {companylength}
           </h4>
-          <span className="text-sm font-medium">Number of available Companies</span>
+          <span className="text-sm font-medium">Number of trading Companies</span>
         </div>
 
         

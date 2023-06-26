@@ -9,7 +9,7 @@ const TableOne = () => {
     useStateValue();
   useState(() => {
     axiosinstance
-      .get('/admin/getNewCompany')
+      .get('/getNewCompany')
       .then((res) => {
         dispatch({
           type: 'signuprequest',
@@ -27,7 +27,7 @@ const TableOne = () => {
       .then((res) => {
         if (res.status == '200') {
           axiosinstance
-            .get('/admin/getNewCompany')
+            .get('/getNewCompany')
             .then((res) => {
               dispatch({
                 type: 'signuprequest',
@@ -56,7 +56,7 @@ const TableOne = () => {
       .then((res) => {
         if (res.status == '200') {
           axiosinstance
-            .get('/admin/getNewCompany')
+            .get('/getNewCompany')
             .then((res) => {
               dispatch({
                 type: 'signuprequest',
@@ -79,14 +79,14 @@ const TableOne = () => {
     <DefaultLayout>
       <div className=" rounded-sm border border-stroke bg-white px-5 pt-6 pb-2.5 shadow-default dark:border-strokedark dark:bg-boxdark sm:px-7.5 xl:pb-1">
         <h4 className="mb-6 text-xl font-semibold text-black dark:text-white">
-          Company Requets
+          Company and Insurance Requests
         </h4>
 
         <div className="flex flex-col">
           <div className="grid grid-cols-3   rounded-sm bg-gray-2 dark:bg-meta-4 sm:grid-cols-5 ">
             <div className="p-2.5 xl:p-5">
               <h5 className="text-sm font-medium uppercase xsm:text-base">
-                Company Names
+                Names
               </h5>
             </div>
             <div className="p-2.5 text-center xl:p-5">
@@ -120,7 +120,7 @@ const TableOne = () => {
 
                   <div className="flex items-center justify-center p-2.5 xl:p-5">
                     <p className="text-meta-3">
-                      {item.verified ? 'verified' : 'false'}
+                      {item.verified ? 'Insurance' : 'Company'}
                     </p>
                   </div>
                   <PopupImage
@@ -151,12 +151,7 @@ const TableOne = () => {
           </div>
         </div>
       </div>
-          <div className="mt-4 grid gap-4 md:mt-6 md:gap-6 2xl:mt-7.5 2xl:gap-7.5 "> 
-
-          <div className="col-span-12 xl:col-span-8">
-            <TableTwo />
-          </div>
-        </div>
+         
       
     </DefaultLayout>
     
